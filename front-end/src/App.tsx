@@ -1,29 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Search } from "monday-ui-react-core";
 import { Heading } from "monday-ui-react-core/next";
 import TableComponent from "./components/Table";
 
-
-
-function App() {  
+function App() {
   const [search, setSearch] = useState<string>('');
+
 
   const handleSearchChange = (value: string) => {
     setSearch(value);
   };
+
   return (
     <div>
-
-      <Heading type={Heading.types.H2} weight={Heading.weights.NORMAL} align="center">
+      <h1 style={{fontWeight: '500', fontFamily: 'sans-serif', textAlign: 'center'}}>
         Weather in countries
-      </Heading>
+      </h1>
 
-      <div style={{width: '50%', margin: '1rem auto'}}>
-        <Search value={search} onChange={handleSearchChange} size="medium" placeholder="Search your country here"/>
+      <div style={{ width: '50%', margin: '1rem auto' }}>
+        <Search value={search} onChange={handleSearchChange} size="medium" placeholder="Search your country here" />
       </div>
 
-      <TableComponent search={search}/>
-
+      <TableComponent search={search} />
     </div>
   );
 }
